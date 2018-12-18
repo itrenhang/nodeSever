@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="NOBOOK虚拟实验室" />
+    <meta name="copyright" content="NOBOOK虚拟实验室" />
+    <meta name="keywords" content="NOBOOK虚拟实验室" />
+    <meta name="description" content="NOBOOK虚拟实验室" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/base.css">
+    <link href="/static/css/website.css" rel="stylesheet">
+    <link href="https://imgcdn.nobook.com/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/static/css/animate.css" rel="stylesheet">
+    <link href="/static/css/jquery.fullpage.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <style>
+        .pageList,.numPage{
+                float: left;
+            }
+            .pagination>li>a, .pagination>li>span{
+                line-height: 1.6;
+            }
+            .pageList>li>a, .pageList>li>span {
+                position: relative;
+                float: left;
+                padding: 6px 12px;
+                line-height: 1.6;
+                text-decoration: none;
+                color: #3097d1;
+                background-color: #fff;
+                border: 1px solid #ddd;
+                margin-left: -1px;
+            }
+            .pageList>.active>a,.pageList>.active>span{
+                z-index: 3;
+                color: #fff;
+                background-color: #3097d1;
+                border-color: #3097d1;
+                cursor: default;
+            }
+        </style>
+</head>
+
+<body style="background-color: #f5f8fa;">
+    <!-- 头部文件 -->
+    <div id="nb_header"></div>
+    <!-- 头部文件end -->
+    <!-- content start -->
+    <!--媒体报道-->
+    <div class="container-fluid nb-media-list-container">
+        <div class="container">
+            <div class="row">
+                <div class="panel panel-default clearfix">
+                    <div class="panel-title">
+                        <h3 class="caption-title">媒体报道</h3>
+                    </div>
+                    <ul class="media-list-body" id="media-list-body-id">
+
+                    </ul>
+                    <div class="container text-center">
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination">
+                                <li class="prevPage">
+                                    <a href="javascript:;" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+                                <ul class="pageList"></ul>
+                                <li class="nextPage">
+                                    <a href="javascript:;" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- content end -->
+    <!-- 底部文件 -->
+    <div id="nb_footer"></div>
+    <!-- 底部文件end -->
+</body>
+<script src="/static/js/jquery-3.3.1.min.js"></script>
+<script src="/static/js/config_url.js"></script>
+<script src="https://imgcdn.nobook.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/static/js/website.js"></script>
+<script src="/static/js/jquery.fullpage.min.js"></script>
+<script src="/static/js/nb_header.js"></script>
+<script src="/static/js/nb_footer.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#nb_header').nbHeader();
+        $('#nb_footer').nbFooter();
+        let ajaxList = function () {
+            this.page = 1;
+            this.perPage = 10;
+            this.lastPageNum = 1;
+        };
+        ajaxList.prototype.init = function () {
+            this.newsList();
+            this.prevPage();
+            this.nextPage();
+            this.numPage();
+        };
+        ajaxList.prototype.newsList = function () {
+            let _this = this;
+            $.ajax({
+                url: urlList.indexNewsListUrl,
+                type: 'GET',
+                data: {
+                    perPage: _this.perPage,
+                    page: _this.page
+                },
+                success: function (res) {
+                    let data = res.data.data;
+                    if (res.code == 0) {
+                        $('#media-list-body-id').empty();
+                        $('.pageList').empty();
+                        for (let i = 0; i < data.length; i++) {
+                            let dom =
+                                `
+                                <li class="col-xs-12">
+                                    <div class="row">
+                                        <a  title="${data[i].nobook_new_title}" href="/view/${data[i].nobook_new_newid}">
+                                            <div class="col-sm-3 col-xs-6">
+                                                <img src="${data[i].nobook_new_titlepic}" width="100%"  onerror="this.src='/static/img/website/nb/notimg.gif'" />
+                                            </div>
+                                            <div class="col-sm-9 col-xs-12">
+                                                <h3 class="h4"><strong>${data[i].nobook_new_title}</strong></h3>
+                                                <small class="small">${data[i].nobook_new_addtime}</small>
+                                                <p class="introduce">${data[i].nobook_new_smalltext}</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </li>
+                            `;
+                            $('#media-list-body-id').append(dom);
+                        }
+                        // let page = Math.ceil(res.data.total / _this.perPage);
+                        let page = _this.paginationFn(Math.ceil(res.data.total / _this.perPage));
+                        _this.lastPageNum = page;
+                        for (let i = 0; i < page.length; i++) {
+                            let dom2 =
+                                `
+                                <li class="${page[i] == _this.page?'active':''} ${page[i] == '...'?'disabled':''} numPage" data-pageval="${page[i]}"><a href="javascript:;">${page[i]}</a></li>
+                            `;
+                            $('.pageList').append(dom2);
+                        }
+                    }
+                }
+            });
+        };
+        ajaxList.prototype.prevPage = function(){
+            let _this = this;
+            $('.prevPage').on('click',function(){
+                _this.page = 1;
+                _this.newsList();
+            });
+        };
+        ajaxList.prototype.nextPage = function(){
+            let _this = this;
+            $('.nextPage').on('click',function(){
+                _this.page = _this.lastPageNum;
+                _this.newsList();
+            });
+        };
+        ajaxList.prototype.numPage = function(){
+            let _this = this;
+            $('.pageList').on('click','li',function(){
+                _this.page = $(this).attr('data-pageval');
+                _this.newsList();
+            });
+        };
+        ajaxList.prototype.paginationFn = function (t) {
+            const c = +this.page;
+            if (t <= 1) {
+                return [1];
+            }
+
+            if (t <= 9) {
+                let arr = [];
+                for (let i = 1; i <= t; i++) {
+                    arr.push(i);
+                }
+                return arr;
+            } else if (t >= 10) {
+                if (c <= 5) {
+                    return [1, 2, 3, 4, 5, 6, "...", t - 1, t]; //第一种情况
+                } else if (c >= t - 4) {
+                    return [1, "...", t - 6, t - 5, t - 4, t - 3, t - 2, t - 1, t]; //第二种情况
+                } else {
+                    return [1, "...", c - 2, c - 1, c, c + 1, c + 2, "...", t]; //第三种情况
+                }
+            }
+        };
+        new ajaxList().init();
+
+    });
+</script>
+
+</html>
