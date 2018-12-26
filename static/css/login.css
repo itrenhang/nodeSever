@@ -1,0 +1,198 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.nb_container {
+    display: flex;
+}
+
+.nb_container .left {
+    width: 36vw;
+    height: 100vh;
+    background-image: url('/static/img/login/Group18.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.nb_container .right {
+    width: 64vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.right .title {
+    font-size: 33px;
+    color: #333;
+    text-align: center;
+}
+
+.right .explan {
+    color: #000000;
+    opacity: 0.45;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.inputLabel {
+    color: #333;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+.form-group {
+    position: relative;
+}
+
+.form-control {
+    width: 400px;
+    height: 44px;
+    line-height: 44px;
+}
+
+.form-control:focus {
+    border-color: #FF8444;
+    box-shadow: 0px 0px 4px 0px rgba(255, 142, 65, 1);
+}
+
+.getCode_btn {
+    color: #5C5F66;
+    font-size: 14px;
+    padding: 0 10px;
+    border-left: 1px solid #D9D9D9;
+    position: absolute;
+    bottom: 10px;
+    right: 0;
+}
+
+.getCode_btn:hover,.text_explan2:hover,.text1_a:hover,.getCode_btn:focus,.text_explan2:focus,.text1_a:focus {
+    color: #FF7619;
+    text-decoration: none;
+}
+
+.registerBtn,.loginBtn {
+    width: 145px;
+    height: 48px;
+    background: rgba(255, 118, 25, 1);
+    border-radius: 24px;
+    margin: 30px auto;
+    display: block;
+    color: #fff;
+    text-align: center;
+    line-height: 48px;
+}
+
+.registerBtn:hover,.loginBtn:hover,
+.registerBtn:focus,.loginBtn:focus {
+    background: #FF8444;
+    color: #fff;
+    text-decoration: none;
+}
+
+.text1 {
+    color: #808592;
+    font-size: 14px;
+    text-align: center;
+}
+
+.text1_a {
+    color: #FF7619;
+    font-size: 14px;
+}
+
+.text_explan {
+    color: #808592;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.text_explan2 {
+    color: #5C5F66;
+}
+
+.register {
+    height: 600px;
+}
+/* 登录模块 */
+.signIn{
+    height: 600px;
+}
+.labelPage{
+    display: flex;
+    margin-bottom: 30px;
+    padding: 0 50px;
+    position: relative;
+}
+.labelPage p{
+    flex:1;
+    text-align: center;
+    padding-bottom: 8px;
+    border-bottom: 2px solid transparent;
+    margin-bottom: 0;
+}
+.labelPage p:hover{
+    color: #FC6835;
+}
+.labelPage p.active{
+    color: #FC6835;
+}
+.labelPage .botBor{
+    transition: all 0.2s ease;
+    position: absolute;
+    bottom: 0;
+    left: 50px;
+    width: 40%;
+    height: 2px;
+    background: #FC6835;
+}
+.loT{
+    position: relative;
+}
+.otherLogin{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 30px 0 30px;
+}
+.loginTypeText{
+    position: absolute;
+    background: #fff;
+    top: -10px;
+    left: 50%;
+    transform: translate(-50%,0);
+    color:#808592;
+}
+.otherLogin .img2{
+    display: none;
+}
+.otherBox:hover .img1{
+    display: none;
+}
+.otherBox:hover .img2{
+    display: block;
+}
+
+/* 过渡 */
+.tranition3s{
+    transition: all 0.3s ease;
+}
+.beforeTran{
+    transform:translate(100%,0);
+    position: absolute;
+    opacity: 0;
+}
+.afterTran{
+    transform:translate(-100%,0);
+    position: absolute;
+    opacity: 0;
+}

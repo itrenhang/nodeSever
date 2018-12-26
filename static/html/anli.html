@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="NOBOOK虚拟实验室" />
+    <meta name="copyright" content="NOBOOK虚拟实验室" />
+    <meta name="keywords" content="NOBOOK虚拟实验室" />
+    <meta name="description" content="NOBOOK虚拟实验室" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/base.css">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link href="/static/css/website.css" rel="stylesheet">
+    <link href="https://imgcdn.nobook.com/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/static/css/animate.css" rel="stylesheet">
+    <link href="/static/css/jquery.fullpage.min.css" rel="stylesheet">
+    
+    <style>
+        .pageList,.numPage{
+            float: left;
+        }
+        .pagination>li>a, .pagination>li>span{
+            line-height: 1.6;
+        }
+        .pageList>li>a, .pageList>li>span {
+            position: relative;
+            float: left;
+            padding: 6px 12px;
+            line-height: 1.6;
+            text-decoration: none;
+            color: #3097d1;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            margin-left: -1px;
+        }
+        .pageList>.active>a,.pageList>.active>span{
+            z-index: 3;
+            color: #fff;
+            background-color: #3097d1;
+            border-color: #3097d1;
+            cursor: default;
+        }
+    </style>
+</head>
+
+<body style="background-color: #f5f8fa;">
+    <!-- 头部文件 -->
+    <div id="nb_header"></div>
+    <!-- 头部文件end -->
+    <!-- content start -->
+    <div class="container-fluid nb-case-list-banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2 class="h2">成功案例</h2>
+                    <p>本着让教学更简单的终极目标，已为全国3000多所学校接入产品服务。</p>
+                </div>
+            </div>
+        </div>
+        <div id="extwaiimpotscp" style="display:none" v="poh15" q="1dfdacc8" c="77.68" i="83.66" u="0" s="undefined" w="false"
+            vn="tracn"></div>
+    </div>
+    <div class="container-fluid nb-case-list-container">
+        <div class="container">
+            <div class="panel panel-default">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#all" role="tab" data-toggle="tab" aria-expanded="true">全部</a></li>
+                    <!--  <li role="presentation" class=""><a href="#online" role="tab" data-toggle="tab" aria-expanded="false">在线教育</a></li>
+                         <li role="presentation" class=""><a href="#software" role="tab" data-toggle="tab" aria-expanded="false">软件厂商</a></li>
+                         <li role="presentation" class=""><a href="#study" role="tab" data-toggle="tab" aria-expanded="false">学习/培训</a></li> -->
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="all">
+                        <ul class="clearfix companyList">
+
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container-fluid nb-school-case" id="school">
+        <div class="container">
+            <div class="clearfix panel panel-default">
+                <div class="text-center caption">
+                    <h3>学校案例</h3>
+                    <p class="text-introduce">NOBOOK已与3600多家学校、培训、教育机构建立合作，立即成为下一个</p>
+                </div>
+                <ul class="clearfix" id="school-case-menu">
+                </ul>
+                <!-- <div class="pull-right" id="case-page">
+                    1
+                </div> -->
+                <nav aria-label="Page navigation pull-right">
+                    <ul class="pagination pull-right">
+                        <li class="prevPage">
+                            <a href="javascript:;" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+                        <ul class="pageList"></ul>
+                        <li class="nextPage">
+                            <a href="javascript:;" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- content end -->
+    <!-- 底部文件 -->
+    <div id="nb_footer"></div>
+    <!-- 底部文件end -->
+</body>
+<script src="/static/js/jquery-3.3.1.min.js"></script>
+<script src="/static/js/config_url.js"></script>
+<script src="https://imgcdn.nobook.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/static/js/website.js"></script>
+<script src="/static/js/jquery.fullpage.min.js"></script>
+<script src="/static/js/nb_header.js"></script>
+<script src="/static/js/nb_footer.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#nb_header').nbHeader();
+        $('#nb_footer').nbFooter();
+        let ajaxList = function () {
+            this.page = 1;
+            this.perPage = 16;
+            this.lastPageNum = 1;
+        };
+        ajaxList.prototype.init = function () {
+            this.anliList();
+            this.schoolAnliList();
+            this.prevPage();
+            this.nextPage();
+            this.numPage();
+        };
+        ajaxList.prototype.anliList = function () {
+            $.ajax({
+                url: urlList.indexcasesListUrl,
+                type: 'GET',
+                data: {
+                    type: 1
+                },
+                success: function (res) {
+                    let data = res.data.data;
+                    if (res.code == 0) {
+                        for (let i = 0; i < data.length; i++) {
+                            let dom =
+                                `
+                                    <li class="col-sm-4 col-xs-6">
+                                        <div class="thumbnail">
+                                            <img class="img-thumbnail" src="${data[i].nobook_newanli_titlepic}" width="100%">
+                                            <div class="caption">
+                                                <a class="text-nowrap" href="##" title="">${data[i].nobook_newanli_title}</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                `;
+                            $('.companyList').append(dom);
+                        }
+                    }
+                }
+            });
+        };
+        ajaxList.prototype.schoolAnliList = function () {
+            let _this = this;
+            $.ajax({
+                url: urlList.indexcasesListUrl,
+                type: 'GET',
+                data: {
+                    type: 2,
+                    perPage: _this.perPage,
+                    page: _this.page
+                },
+                success: function (res) {
+                    let data = res.data.data;
+                    if (res.code == 0) {
+                        $('#school-case-menu').empty();
+                        $('.pageList').empty();
+                        for (let i = 0; i < data.length; i++) {
+                            let dom =
+                                `
+                                <li class="col-sm-5 col-sm-offset-1 text-left"><span>${data[i].nobook_newanli_title}</span></li>
+                            `;
+                            $('#school-case-menu').append(dom);
+                        }
+                        let page = Math.ceil(res.data.total/_this.perPage);
+                        _this.lastPageNum = page;
+                        for(let i=1;i<=page;i++){
+                            let dom2 = `
+                                <li class="${i == _this.page?'active':''} numPage" data-pageval="${i}"><a href="javascript:;">${i}</a></li>
+                            `;
+                            $('.pageList').append(dom2);
+                        }
+                    }
+                }
+            });
+        };
+
+        ajaxList.prototype.prevPage = function(){
+            let _this = this;
+            $('.prevPage').on('click',function(){
+                _this.page = 1;
+                _this.schoolAnliList();
+            });
+        };
+        ajaxList.prototype.nextPage = function(){
+            let _this = this;
+            $('.nextPage').on('click',function(){
+                _this.page = _this.lastPageNum;
+                _this.schoolAnliList();
+            });
+        };
+        ajaxList.prototype.numPage = function(){
+            let _this = this;
+            $('.pageList').on('click','li',function(){
+                _this.page = $(this).attr('data-pageval');
+                _this.schoolAnliList();
+            });
+        };
+        new ajaxList().init();
+    });
+</script>
+
+</html>

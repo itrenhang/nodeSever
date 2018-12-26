@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="NOBOOK虚拟实验室" />
+    <meta name="copyright" content="NOBOOK虚拟实验室" />
+    <meta name="keywords" content="NOBOOK虚拟实验室" />
+    <meta name="description" content="NOBOOK虚拟实验室" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/base.css">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link href="/static/css/website.css" rel="stylesheet">
+    <link href="https://imgcdn.nobook.com/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/static/css/animate.css" rel="stylesheet">
+    <link href="/static/css/jquery.fullpage.min.css" rel="stylesheet">
+    
+    <style>
+
+    </style>
+</head>
+
+<body style="background-color: #f5f8fa;">
+    <!-- 头部文件 -->
+    <div id="nb_header"></div>
+    <!-- 头部文件end -->
+    <!-- content start -->
+    <div class="huaxue-full-page" id="full-page">
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-3 text-right" style="padding: 0 45px 0 0;">
+                        <img class="nb-animate-icon" src="/static/img/website/huaxue/huaxue_logo.png">
+                        <img class="nb-animate-icon" style="margin: 13px 0 0 82px;" src="/static/img/website/huaxue.png"
+                            alt="">
+                    </div>
+                    <div class="col-sm-9 caption" style="color: #fff;">
+                        <div class="nb-animate-text">
+                            <h3 class="h3 caption-title">NB化学实验</h3>
+                            <p class="caption-p">NB化学实验涵盖了人教版初高中化学教材版本中的全部经典实验，自主研发的热力学引擎、导管引擎、粒子引擎、速率系统、化学平衡系统。真正意义上实现自主DIY。</p>
+                        </div>
+                        <div class="fatherPosition clearfix nb-btn-group nb-animate-btn" style="margin-top: 50px;">
+                            <a target="_blank" class="nb-project-btn btn btn-danger col-md-3 col-xs-7 nb-danger" href="{{ config('common_config.url.huaxue_nb_url') }}"
+                                style="border-bottom: 2px solid #c1581e;"><span class="btn-img"><img src="/static/img/website/diqiu.png"
+                                        alt=""></span><span class="spanDown">在线使用&nbsp;&nbsp;&nbsp;<br />
+                                    <span class="version">版本&nbsp;<span class="versionNumber"></span>&nbsp;&nbsp;&nbsp;<span
+                                            class="updatetime"><span class="versionTime"></span></span></span></span></a>
+                            <a id="huaxue_down_url" class="nb-project-btn fatherPosition btn btn-primary col-md-3 col-xs-7 col-xs-offset-1"
+                                href=""> <span class="btn-img"><img src="/static/img/website/pc_logo.png" alt=""></span><span
+                                    class="spanDown">PC版下载&nbsp;&nbsp;<br />
+                                    <span class="version">版本&nbsp;<span class="versionNumber"></span>&nbsp;&nbsp;&nbsp;<span
+                                            class="updatetime"><span class="versionTime"></span></span></span></span>
+                            </a>
+                            <a id="huaxue_mac" class="nb-project-btn fatherPosition btn btn-mac col-md-3 col-xs-7 col-xs-offset-1"
+                                href=""><span class="btn-img"><img src="/static/img/website/mac_logo.png" alt=""></span><span
+                                    class="spanDown">Mac版下载
+                                    <span class="version">版本&nbsp;<span class="versionNumber_mac"></span>&nbsp;&nbsp;&nbsp;<span
+                                            class="updatetime_mac"><span class="versionTime_mac"></span></span></span></span>
+                            </a>
+                            <!-- <a class="btn btn-primary col-xs-3 col-xs-offset-1" href=""><span class="fa fa-windows"></span>PC下载</a>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4 banner-caption nb-animate-text">
+                        <h3 class="h3 caption-title">热力学系统</h3>
+                        <p class="caption-p">利用理想气体方程来实现气体的膨胀和收缩，实现了热力学系统的程序化控制，可以逼真的模拟各种真实实验场景。（提供装置气密性检查实验中，压强过大胶塞弹出的实验）。</p>
+                    </div>
+                    <div class="col-sm-8 text-right nb-animate-icon">
+                        <img src="/static/img/website/huaxue/1.png" width="100%" style="max-width: 536px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8 text-left nb-animate-icon">
+                        <img src="/static/img/website/huaxue/2.png" width="100%" style="max-width: 719px;">
+                    </div>
+                    <div class="col-sm-4 banner-caption nb-animate-text">
+                        <h3 class="h3 caption-title">器材随意组装</h3>
+                        <p class="caption-p">提供了一个基于真实世界的实验平台，能像真实实验一样任意组装实验器材，模拟实验现象。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4 banner-caption nb-animate-text">
+                        <h3 class="h3 caption-title">化学反应系统</h3>
+                        <p class="caption-p">涵盖初高中无机化学中的任意药品之间的的化学反应。（提供氢气在氯气中燃烧反应）。</p>
+                    </div>
+                    <div class="col-sm-8 text-right nb-animate-icon">
+                        <img src="/static/img/website/huaxue/3.png" width="100%" style="max-width: 577px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-8 text-left nb-animate-icon">
+                        <img src="/static/img/website/huaxue/4.png" width="100%" style="max-width: 663px;">
+                    </div>
+                    <div class="col-sm-4 banner-caption nb-animate-text">
+                        <h3 class="h3 caption-title">粒子渲染系统</h3>
+                        <p class="caption-p">通过粒子系统来表现真实的化学反应，如烟雾、沸腾、镁条燃烧、铝热反应实验中的特效。（提供镁条燃烧）。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4 banner-caption nb-animate-text">
+                        <h3 class="h3 caption-title">重力系统</h3>
+                        <p class="caption-p">药品在容器中会受到重力作用，逼真的还原真实场景。</p>
+                    </div>
+                    <div class="col-sm-8 text-right nb-animate-icon">
+                        <img src="/static/img/website/huaxue/5.png" width="100%" style="max-width: 616px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--footer-->
+        <div class="section last">
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col-xs-12 text-left nb-animate-text">
+                        <h3 class="h3" style="margin-bottom: 60px;">支持设备</h3>
+                    </div>
+                </div>
+                <div class="row text-center nb-animate-icon">
+                    <div class="col-xs-4">
+                        <img src="/static/img/website/iphone.png">
+                    </div>
+                    <div class="col-xs-4" style="padding-left: 50px;">
+                        <img src="/static/img/website/ipad.png">
+                    </div>
+                    <div class="col-xs-4">
+                        <img src="/static/img/website/pc.png">
+                    </div>
+                </div>
+                <div class="row text-center">
+                    <div class="col-xs-12 text-left nb-animate-text">
+                        <h3 class="h3" style="margin-bottom: 60px;">联系方式</h3>
+                    </div>
+                </div>
+                <div class="row nb-animate-icon">
+                    <ul class="col-sm-4 list-unstyled nav nav-stacked footer-menu" style="padding-left: 12%; margin-bottom: 30px;">
+                        <li style="margin-bottom: 20px;">服务时间:</li>
+                        <li>400-960-2199（工作: 9:00-18:00）</li>
+                        <li>Email</li>
+                        <li>support@nobook.com.cn</li>
+                    </ul>
+                    <ul class="col-sm-4 list-unstyled nav nav-stacked footer-menu" style="padding-left: 12%">
+                        <li class="list-title" style="margin-bottom: 20px;"><span>微信扫一扫</span></li>
+                        <li><img src="/static/img/website/qr.png"></li>
+                    </ul>
+                </div>
+            </div>
+            <div style="font-size: 12px;color: #999;width: 100%;text-align:center">
+                © 2011-2018 nobook.com , All Rights Reserved 京ICP备09046562号-4
+            </div>
+        </div>
+    </div>
+    <!-- content end -->
+</body>
+<script src="/static/js/jquery-3.3.1.min.js"></script>
+<script src="https://imgcdn.nobook.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/static/js/website.js"></script>
+<script src="/static/js/jquery.fullpage.min.js"></script>
+<script src="/static/js/nb_header.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#nb_header').nbHeader();
+    });
+    download_url('huaxue');
+        $(function(){
+            $('.kefu-menu').hide();
+        });
+</script>
+
+</html>

@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="NOBOOK虚拟实验室" />
+    <meta name="copyright" content="NOBOOK虚拟实验室" />
+    <meta name="keywords" content="NOBOOK虚拟实验室" />
+    <meta name="description" content="NOBOOK虚拟实验室" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/base.css">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link href="/static/css/website.css" rel="stylesheet">
+    <link href="https://imgcdn.nobook.com/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/static/css/animate.css" rel="stylesheet">
+    <link href="/static/css/jquery.fullpage.min.css" rel="stylesheet">
+    
+    <style>
+        body{
+        background-color: #fff;
+        width: 100%;
+        height: auto;
+        }
+        .banner{
+            margin-top: 68px;
+            background: url("/static/img/curseware/curseware_banner.jpg") no-repeat center;
+            height: 682px;
+        }
+        .banner_phone{
+            margin-top: 68px;
+            background: url("/static/img/curseware/phone_banner.png") no-repeat center;
+            height: 682px;
+        }
+        .banner_present{
+            width: 380px;
+            height: 450px;
+            background-color: rgba(0,0,0,0.6);
+            filter:alpha(opacity=60);
+            position: absolute;
+            left: 15%;
+            top:150px;
+            border-radius: 5px;
+        }
+        .banner_title{
+            text-align: center;
+            margin-top:30px ;
+            font-size: 39px;
+            color: #fff;
+        }
+        .banner_container{
+            color: #fff;
+            font-size: 17px;
+            padding: 15px 50px 0;
+        }
+        .btn_online{
+            text-align: center;
+            line-height: 50px;
+            width: 80%;
+            height: 50px;
+            font-size: 16px;
+            background: #ff762d;
+            color: #fff;
+            display: inline-block;
+            margin: 30px 8% 0 12%;
+            border-radius: 10px;
+        }
+        .btn_online:hover{
+            color: #fff;
+        }
+        .btn_download{
+            margin-top: 15px;
+            text-align: center;
+        }
+        .class_nav{
+            background: #7f7f7f;
+        }
+        .class_nav>div{
+            max-width: 1170px;
+            margin: auto;
+        }
+        .before{
+            display: inline-block;
+            width: 389px;
+            position: relative;
+        }
+        .moduleDIv{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(247,105,29,0.9);
+            color: #fff;
+            padding: 50px 30px 0;
+            display: none;
+
+        }
+        .moduleDIv_phone{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(247,105,29,0.9);
+            color: #fff;
+            padding: 50px 30px 0;
+            display: inline-block;
+
+        }
+        .cNavTitle{
+            text-align: center;
+            font-size: 30px;
+            margin: 50px -15px;
+        }
+        .row_icon .col-lg-2{
+            text-align: center;
+            padding: 0;
+        }
+        .row_icon h3{
+            margin: 15px 0;
+        }
+        .row_icon span{
+            font-size: 14px;
+            color: #909090;
+        }
+        .row_icon .col-lg-2>div{
+            height: 108px;
+        }
+        .container_nav{
+            max-width: 1170px;
+            margin:0 auto 60px;
+            background-color: #fff;
+        }
+        .container_body{
+            width: 100%;
+        }
+        .container_body .row{
+            max-width: 1170px;
+            margin: auto;
+        }
+        .colText{
+            text-align: left;
+            position: relative;
+            color: #0c7ff4;
+        }
+        .colText b{
+            display: inline-block;
+            background-color: #0c7ff4;
+            width: 5px;
+            height: 15px;
+        }
+        .colInfo{
+            font-size:16px;
+            color: #909090;
+            float: right;
+            text-align: left;
+            line-height: 32px;
+            margin: 20px 0 0 0;
+        }
+        .body_title{
+            background-color: #0c7ff4;
+            height: 100%;
+            width: 11%;
+            margin-right:4% ;
+            text-align: center;
+            font-size: 26px;
+            color: #fff;
+            float: left;
+            padding: 80px 0;
+        }
+        .phone_title{
+            width: 100%;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            font-size: 26px;
+            background-color: #0c7ff4;
+            color:#fff;
+        }
+        .body_title-null{
+            height: 365px;
+            width: 11%;
+            margin-right:4% ;
+            text-align: center;
+            font-size: 26px;
+            color: #fff;
+            float: left;
+            padding: 80px 0;
+        }
+        .phoneDivTitle{
+            padding:90px 20px 0 20px
+        }
+    </style>
+</head>
+
+<body style="background-color: #f5f8fa;">
+    <!-- 头部文件 -->
+    <div id="nb_header"></div>
+    <!-- 头部文件end -->
+    <!-- content start -->
+    <div class="banner visible-lg visible-md visible-sm">
+        <div style="width:100%;float: left;">
+            <div class="banner_present ">
+                <div class="banner_title">NB物理教学平台</div>
+                <div class="banner_container">
+                    NB物理教学平台是移动互联网环境下诞生的一款集备授课于一身的物理学科互动教学产品。主要服务于初高中物理教师，在未来教室中进行高质量互动教学，同时满足普通教室的常规教学任务。
+                </div>
+                <div>
+                    <a class="btn_online" target="_blank" href="https://physics.nobook.com/">
+                        在线使用
+                    </a>
+                </div>
+                <div class="btn_download">
+                    &nbsp;&nbsp;&nbsp;
+                    <a href="http://d2.nobook.com/software-mac/NB_PHYSICS/NB_PHYSICS-v2.0.0.dmg">
+                        <img width="140px" src="/static/img/curseware/mac_d.png" alt="">
+                    </a>
+                    <a href="http://d2.nobook.com/software/NB_PHYSICS/NB_PHYSICS-v2.0.0.exe">
+                        <img width="160px" src="/static/img/curseware/win_d.png" alt="">
+                    </a><br>
+                    <span style="text-align:left;display: inline-block;width: 49%;font-size: 12px;color: #fff">
+                        <span style="display: inline-block;margin-left: 70px">v2.0.0</span>
+                    </span>
+                    <span style="text-align:left;display: inline-block;width: 49%;font-size: 12px;color: #fff">
+                        <span style="display: inline-block;margin-left: 20px">v2.0.0</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="banner_phone hidden-lg hidden-md hidden-sm">
+        <div style="width:100%;float: left;">
+            <div class="phone_banner_present">
+                <div class="banner_title" style="margin-top: 160px;">NB物理教学平台</div>
+                <div class="banner_container" style="text-align: center">
+                    NB物理教学平台是移动互联网环境下诞生的一款集备授课于一身的物理学科互动教学产品。主要服务于初高中物理教师，在未来教室中进行高质量互动教学，同时满足普通教室的常规教学任务。
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="class_nav">
+        <div class="visible-lg">
+            <div class="before">
+                <img src="/static/img/curseware/curseware_before.jpg" width="100%" alt="">
+                <div class="moduleDIv">
+                    它具备课件编辑中常用的图文处理、图形编辑、动画制作、多媒体资源嵌入等功能，满足常规课件编辑需求的同时，整合了专业的学科功能，如NB物理实验、海量物理题库、物理专有图形、物理专有多媒体资源库，嵌入资源时还可进行随时编辑，大幅度降低教师查找备课资源所带来的不便，是一款物理老师专属的备课神器。
+                </div>
+            </div>
+            <div class="before" style="margin-left: -4px">
+                <div class="moduleDIv">
+                    它具备强大的多屏实时互动、数据即时反馈功能，教师可即时掌握学生课堂学习情况，以便快速调整教学策略。同时具备板书及实验操作分发等多种互动教学功能。
+                </div>
+                <img src="/static/img/curseware/curseware_in.jpg" width="100%" alt="">
+            </div>
+            <div class="before" style="margin-left: -4px">
+                <div class="moduleDIv">
+                    具备课件管理、班级管理、班级习题数据分析统计等功能，可随时对学生学习掌握情况进行排查，分析学生对知识点掌握情况，实现个性化调整教学策略。
+                </div>
+                <img src="/static/img/curseware/curseware_after.jpg" width="100%" alt="">
+            </div>
+        </div>
+        <div class="hidden-lg">
+            <div class="before" style="width: 100%">
+                <img src="/static/img/curseware/curseware_before.jpg" width="100%" alt="">
+                <div class="moduleDIv_phone">
+                    <h3 style="text-align: center;margin-bottom: 10px">课前</h3>
+                    它具备课件编辑中常用的图文处理、图形编辑、动画制作、多媒体资源嵌入等功能，满足常规课件编辑需求的同时，整合了专业的学科功能，如NB物理实验、海量物理题库、物理专有图形、物理专有多媒体资源库，嵌入资源时还可进行随时编辑，大幅度降低教师查找备课资源所带来的不便，是一款物理老师专属的备课神器。
+                </div>
+            </div>
+            <div class="before" style="margin-left: -4px;width: 100%">
+                <div class="moduleDIv_phone">
+                    <h3 style="text-align: center;margin-bottom: 10px">课中</h3>
+                    它具备强大的多屏实时互动、数据即时反馈功能，教师可即时掌握学生课堂学习情况，以便快速调整教学策略。同时具备板书及实验操作分发等多种互动教学功能。
+                </div>
+                <img src="/static/img/curseware/curseware_in.jpg" width="100%" alt="">
+            </div>
+            <div class="before" style="margin-left: -4px;width: 100%">
+                <div class="moduleDIv_phone">
+                    <h3 style="text-align: center;margin-bottom: 10px">课后</h3>
+                    具备课件管理、班级管理、班级习题数据分析统计等功能，可随时对学生学习掌握情况进行排查，分析学生对知识点掌握情况，实现个性化调整教学策略。
+                </div>
+                <img src="/static/img/curseware/curseware_after.jpg" width="100%" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="">
+        <div class="container_nav">
+            <div class="row cNavTitle">
+                NB物理教学平台优势
+            </div>
+            <div class="row row_icon">
+                <div class="col-lg-2" style="text-align: center">
+                    <div>
+                        <img src="/static/img/curseware/curseware_h5.png" alt="">
+                    </div>
+                    <h3>H5技术</h3>
+                    <span>多系统，全平台，一账号通用</span>
+                </div>
+
+                <div class="col-lg-2" style="text-align: center">
+                    <div>
+                        <img src="/static/img/curseware/curseware_adaption.png" alt="">
+                    </div>
+                    <h3>全适配</h3>
+                    <span>多硬件，全适配</span>
+                </div>
+
+                <div class="col-lg-2" style="text-align: center">
+                    <div>
+                        <img src="/static/img/curseware/curseware_active.png" alt="">
+                    </div>
+                    <h3>互动传播</h3>
+                    <span>多平台分享，无需下载安装</span>
+                </div>
+
+                <div class="col-lg-2" style="text-align: center">
+                    <div>
+                        <img src="/static/img/curseware/curseware_bank.png" alt="">
+                    </div>
+                    <h3>题库</h3>
+                    <span>海量学而思题库</span>
+                </div>
+
+                <div class="col-lg-2" style="text-align: center">
+                    <div>
+                        <img src="/static/img/curseware/curseware_imploded_02.png" alt="">
+                    </div>
+                    <h3>集成实验</h3>
+                    <span>集成NB物理实验，DIY实验</span>
+                </div>
+
+                <div class="col-lg-2" style="text-align: center">
+                    <div>
+                        <img src="/static/img/curseware/curseware_yun.png" alt="">
+                    </div>
+                    <h3>云储存</h3>
+                    <span>随时随地文件管理</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="phone_title hidden-lg">
+            备课端功能
+        </div>
+
+        <div class="visible-lg">
+            <div class="container_body" style="background-color: #f2f2f2">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="body_title">
+                            备课端功能
+                        </div>
+                        <div style="float: right;width: 80%;padding-top: 90px">
+                            <div class="colText">
+                                <h4 class="rowTitle">
+                                    <b></b>
+                                    图文混排
+                                </h4>
+                            </div>
+                            <div class="colInfo">
+                                NOBOOK物理教学平台有着强大的图文混排功能，您可以任意调整文字的字体、字号、颜色等属性，还可以对图片进行裁剪、旋转等操作。充分发挥您的创造力，打造属于自己特色的课件
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7" style="margin: 35px 0">
+                        <img width="85%" src="/static/img/curseware/curseware_graphic.png" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="container_body" style="background-color: #fff">
+                <div class="row">
+                    <div class="col-lg-7" style="margin: 35px 0;padding-left: 40px;">
+                        <img width="85%" src="/static/img/curseware/curseware_edit.png" alt="">
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="body_title-null">
+
+                        </div>
+                        <div style="float: right;width: 80%;padding-top: 90px">
+                            <div class="colText">
+                                <h4 class="rowTitle">
+                                    <b></b>
+                                    实验编辑
+                                </h4>
+                            </div>
+                            <div class="colInfo">
+                                无缝接入了NOBOOK虚拟实验，您可在课件中自由插入虚拟实验，提升教学体验，提升授课效率。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container_body" style="background-color: #f2f2f2">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="body_title-null">
+                        </div>
+                        <div style="float: right;width: 80%;padding-top: 90px">
+                            <div class="colText">
+                                <h4 class="rowTitle">
+                                    <b></b>
+                                    习题编辑
+                                </h4>
+                            </div>
+                            <div class="colInfo">
+                                与学而思题库直接进行了对接，海量优质题目一键即可插入课件。同时您还可以自由编辑习题，构建属于自己的专属题库。
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7" style="margin: 35px 0">
+                        <img width="85%" src="/static/img/curseware/curseware_exerise.png" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="container_body" style="background-color: #fff">
+                <div class="row">
+                    <div class="col-lg-7" style="margin: 35px 0;padding-left: 40px;">
+                        <img width="85%" src="/static/img/curseware/curseware_user.png" alt="">
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="body_title-null">
+
+                        </div>
+                        <div style="float: right;width: 80%;padding-top: 90px">
+                            <div class="colText">
+                                <h4 class="rowTitle">
+                                    <b></b>
+                                    第三方应用
+                                </h4>
+                            </div>
+                            <div class="colInfo">
+                                平台可直接插入来自第三方的应用链接，大大提升了教学平台的扩展性。您可以自由在课件中插入来自第三方的视频、动画等在线链接，使您的课件具有无限可能！
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hidden-lg">
+            <div class="container_body" style="background-color: #f2f2f2">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="phoneDivTitle">
+                            <div class="colText">
+                                <h4 class="rowTitle">
+                                    <b></b>
+                                    图文混排
+                                </h4>
+                            </div>
+                            <div class="colInfo">
+                                NOBOOK物理教学平台有着强大的图文混排功能，您可以任意调整文字的字体、字号、颜色等属性，还可以对图片进行裁剪、旋转等操作。充分发挥您的创造力，打造属于自己特色的课件
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7" style="margin: 35px 0;">
+                        <img width="85%" style="margin: 20px 0 0 18px;" src="/static/img/curseware/curseware_graphic.png"
+                            alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="container_body" style="background-color: #fff">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="phoneDivTitle">
+                            <div class="colText">
+                                <h4 class="rowTitle">
+                                    <b></b>
+                                    实验编辑
+                                </h4>
+                            </div>
+                            <div class="colInfo">
+                                无缝接入了NOBOOK虚拟实验，您可在课件中自由插入虚拟实验，提升教学体验，提升授课效率。
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7" style="margin: 35px 0;padding-left: 40px;">
+                        <img style="margin: 20px 0 0 0;" width="85%" src="/static/img/curseware/curseware_edit.png"
+                            alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="container_body" style="background-color: #f2f2f2">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="phoneDivTitle">
+                            <div class="colText">
+                                <h4 class="rowTitle">
+                                    <b></b>
+                                    习题编辑
+                                </h4>
+                            </div>
+                            <div class="colInfo">
+                                与学而思题库直接进行了对接，海量优质题目一键即可插入课件。同时您还可以自由编辑习题，构建属于自己的专属题库。
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7" style="margin: 35px 0">
+                        <img style="margin: 20px 0 0 18px;" width="85%" src="/static/img/curseware/curseware_exerise.png"
+                            alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="container_body" style="background-color: #fff">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="phoneDivTitle">
+                            <div class="colText">
+                                <h4 class="rowTitle">
+                                    <b></b>
+                                    第三方应用
+                                </h4>
+                            </div>
+                            <div class="colInfo">
+                                平台可直接插入来自第三方的应用链接，大大提升了教学平台的扩展性。您可以自由在课件中插入来自第三方的视频、动画等在线链接，使您的课件具有无限可能！
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7" style="margin: 35px 0;padding-left: 40px;">
+                        <img style="margin: 20px 0 0 0;" width="85%" src="/static/img/curseware/curseware_user.png"
+                            alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="phone_title hidden-lg" style="background-color: #6dc00c">
+            备课端功能
+        </div>
+
+        <div class="visible-lg">
+            <div class="container_body" style="background-color: #f2f2f2">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="body_title visible-lg" style="background-color: #6dc00c">
+                            授课端功能
+                        </div>
+                        <div style="float: right;width: 80%;padding-top: 90px">
+                            <div class="colText" style="color: #6dc00c">
+                                <h4 class="rowTitle">
+                                    <b style="background-color: #6dc00c"></b>
+                                    扫码
+                                </h4>
+                            </div>
+                            <div class="colInfo">
+                                授课端支持同屏互动功能，学生通过扫码的形式即可轻松实现翻转课堂，使学生与老师的联系更加紧密。
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7" style="margin: 35px 0">
+                        <img width="73%" src="/static/img/curseware/curseware_code.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="container_body" style="background-color: #fff">
+                <div class="row">
+                    <div class="col-lg-7" style="margin: 35px 0;padding-left: 40px;">
+                        <img width="85%" src="/static/img/curseware/curseware_screen.jpg" alt="">
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="body_title-null">
+
+                        </div>
+                        <div style="float: right;width: 80%;padding-top: 90px">
+                            <div class="colText" style="color: #6dc00c">
+                                <h4 class="rowTitle">
+                                    <b style="background-color: #6dc00c"></b>
+                                    同屏
+                                </h4>
+                            </div>
+                            <div class="colInfo">
+                                平台授课端能够实现老师与学生同屏的功能，老师操作能实时同步在学生的设备中，讲解更直观，更有效率。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container_body" style="background-color: #f2f2f2">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="body_title-null">
+
+                        </div>
+                        <div style="float: right;width: 80%;padding-top: 90px">
+                            <div class="colText" style="color: #6dc00c">
+                                <h4 class="rowTitle">
+                                    <b style="background-color: #6dc00c"></b>
+                                    数据反馈
+                                </h4>
+                            </div>
+                            <div class="colInfo">
+                                授课端能够进行互动习题测试，并还能对课堂的习题数据进行实时反馈，学生掌握情况一目了然。
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7" style="margin: 35px 0">
+                        <img width="73%" src="/static/img/curseware/curseware_data.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="container_body" style="background-color: #fff">
+                <div class="row">
+                    <div class="col-lg-7" style="margin: 35px 0;padding-left: 40px;">
+                        <img width="85%" src="/static/img/curseware/curseware_blackbord.jpg" alt="">
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="body_title-null">
+
+                        </div>
+                        <div style="float: right;width: 80%;padding-top: 90px">
+                            <div class="colText" style="color: #6dc00c">
+                                <h4 class="rowTitle">
+                                    <b style="background-color: #6dc00c"></b>
+                                    板书
+                                </h4>
+                            </div>
+                            <div class="colInfo">
+                                授课段提供了强大的板书功能，您可以自由在播放的课件上进行圈点勾画，提高教学效率。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hidden-lg">
+            <div class="container_body" style="background-color: #f2f2f2">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="phoneDivTitle">
+                            <div class="colText" style="color: #6dc00c">
+                                <h4 class="rowTitle">
+                                    <b style="background-color: #6dc00c"></b>
+                                    扫码
+                                </h4>
+                            </div>
+                            <div class="colInfo">
+                                授课端支持同屏互动功能，学生通过扫码的形式即可轻松实现翻转课堂，使学生与老师的联系更加紧密。
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7" style="margin: 35px 0">
+                        <img style="margin: 20px 0 0 18px;" width="80%" src="/static/img/curseware/curseware_code.jpg"
+                            alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="container_body" style="background-color: #fff">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="phoneDivTitle">
+                            <div class="colText" style="color: #6dc00c">
+                                <h4 class="rowTitle">
+                                    <b style="background-color: #6dc00c"></b>
+                                    同屏
+                                </h4>
+                            </div>
+                            <div class="colInfo">
+                                平台授课端能够实现老师与学生同屏的功能，老师操作能实时同步在学生的设备中，讲解更直观，更有效率。
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7" style="margin: 35px 0;padding-left: 40px;">
+                        <img style="margin: 20px 0 0 0;" width="85%" src="/static/img/curseware/curseware_screen.jpg"
+                            alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="container_body" style="background-color: #f2f2f2">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="phoneDivTitle">
+                            <div class="colText" style="color: #6dc00c">
+                                <h4 class="rowTitle">
+                                    <b style="background-color: #6dc00c"></b>
+                                    数据反馈
+                                </h4>
+                            </div>
+                            <div class="colInfo">
+                                授课端能够进行互动习题测试，并还能对课堂的习题数据进行实时反馈，学生掌握情况一目了然。
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7" style="margin: 35px 0">
+                        <img style="margin: 20px 0 0 18px;" width="80%" src="/static/img/curseware/curseware_data.jpg"
+                            alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="container_body" style="background-color: #fff">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="phoneDivTitle">
+                            <div class="colText" style="color: #6dc00c">
+                                <h4 class="rowTitle">
+                                    <b style="background-color: #6dc00c"></b>
+                                    板书
+                                </h4>
+                            </div>
+                            <div class="colInfo">
+                                授课段提供了强大的板书功能，您可以自由在播放的课件上进行圈点勾画，提高教学效率。
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7" style="margin: 35px 0;padding-left: 40px;">
+                        <img style="margin: 20px 0 0 0;" width="85%" src="/static/img/curseware/curseware_blackbord.jpg"
+                            alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="background-color: #f2f2f2;padding-bottom: 20px">
+            <div class="row cNavTitle">
+                解决方案
+            </div>
+            <div class="row" style="max-width: 1170px;margin: auto">
+                <div class="col-lg-6">
+                    <img width="100%" src="/static/img/curseware/curseware_ordinary.png" alt="">
+                    <h4 style="margin: 15px 0">
+                        普通教室教学提升方案
+                    </h4>
+                    <div style="color: #909090;line-height: 30px">
+                        NB物理教学平台支持老师家里或办公室进行备课，可直接与普通教室结合，部署在学校原有的硬件设备中（教室里的电子白板、触控一体机、投影、办公室的电脑）中，方便课堂教学展示。
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img width="100%" src="/static/img/curseware/curseware_interactive.png" alt="">
+                    <h4 style="margin: -15px 0 15px;">
+                        互动课堂提升方案
+                    </h4>
+                    <div style="color: #909090;line-height: 30px">
+                        在配有学生使用终端的互动教室里（比如微机室或是平板教室），NB物理教学平台实现教师端与学生端的高效互动，同时，互动不局限于课堂内，课外学生可通过任意的终端（如手机、电脑、平板等）与老师进行互动。
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- content end -->
+    <!-- 底部文件 -->
+    <div id="nb_footer"></div>
+    <!-- 底部文件end -->
+</body>
+<script src="/static/js/jquery-3.3.1.min.js"></script>
+<script src="/static/js/config_url.js"></script>
+<script src="https://imgcdn.nobook.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/static/js/website.js"></script>
+<script src="/static/js/jquery.fullpage.min.js"></script>
+<script src="/static/js/nb_header.js"></script>
+<script src="/static/js/nb_footer.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#nb_header').nbHeader();
+        $('#nb_footer').nbFooter();
+    });
+    $(function(){
+        $('.before').hover(function(){
+            $(this).children('.moduleDIv').css('display','inline-block');
+        },function () {
+            $(this).children('.moduleDIv').css('display','none');
+        })
+    });
+</script>
+
+</html>

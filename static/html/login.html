@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="NOBOOK虚拟实验室" />
+    <meta name="copyright" content="NOBOOK虚拟实验室" />
+    <meta name="keywords" content="NOBOOK虚拟实验室" />
+    <meta name="description" content="NOBOOK虚拟实验室" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/css/base.css">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <link href="https://imgcdn.nobook.com/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/login.css">
+</head>
+
+<body>
+    <div class="nb_container">
+        <div class="left"></div>
+        <div class="right">
+            <!-- 注册模块 -->
+            <div class="register beforeTran">
+                <h3 class="title">欢迎加入NOBOOK</h3>
+                <p class="explan">让 教 学 更 简 单</p>
+                <div class="form-group">
+                    <label class="inputLabel" for="registerPhone">手机号</label>
+                    <input type="number" class="form-control" id="registerPhone" placeholder="输入11位手机号">
+                </div>
+                <div class="form-group">
+                    <label class="inputLabel" for="registerPhone">验证码</label>
+                    <input type="number" class="form-control" id="registerPhone" placeholder="请输入验证码">
+                    <a href="javascript:;" class="getCode_btn">获取验证码</a>
+                </div>
+                <div class="form-group">
+                    <label class="inputLabel" for="registerPhone">密码</label>
+                    <input type="number" class="form-control" id="registerPhone" placeholder="请输入密码">
+                </div>
+                <a href="javascript:;" class="registerBtn">注册</a>
+                <div>
+                    <p class="text1">已有账户？<a class="text1_a goLogin" href="javascript:;">登录</a></p>
+                    <p style="width:234px;height:2px;background:rgba(217,217,217,1);margin: 0 auto;"></p>
+                    <p class="text_explan">注册代表你已同意 <a href="javascript:;" class="text_explan2">《NOBOOK用户协议》</a></p>
+                </div>
+            </div>
+            <!-- 登录模块 -->
+            <div class="signIn">
+                <h3 class="title">欢迎回到NOBOOK</h3>
+                <p class="explan">让 教 学 更 简 单</p>
+                <!-- 标签页 -->
+                <div class="labelPage">
+                    <p class="active">账号密码登录</p>
+                    <p>手机号登录</p>
+                    <span class="botBor"></span>
+                </div>
+                <div style="display:flex;">
+                    <div class="loginPhone beforeTran">
+                        <div class="form-group">
+                            <label class="inputLabel" for="registerPhone">手机号</label>
+                            <input type="number" class="form-control" id="registerPhone" placeholder="输入11位手机号">
+                        </div>
+                        <div class="form-group">
+                            <label class="inputLabel" for="registerPhone">验证码</label>
+                            <input type="number" class="form-control" id="registerPhone" placeholder="请输入验证码">
+                            <a href="javascript:;" class="getCode_btn">获取验证码</a>
+                        </div>
+                    </div>
+                    <div class="loginPassword">
+                        <div class="form-group">
+                            <label class="inputLabel" for="registerPhone">账户</label>
+                            <input type="number" class="form-control" id="registerPhone" placeholder="请输入密码">
+                        </div>
+                        <div class="form-group">
+                            <label class="inputLabel" for="registerPhone">密码</label>
+                            <input type="number" class="form-control" id="registerPhone" placeholder="请输入密码">
+                        </div>
+                    </div>
+                </div>
+                <a href="javascript:;" class="loginBtn">登录</a>
+                <div class="loT">
+                    <p style="width:234px;height:2px;background:rgba(217,217,217,1);margin: 0 auto;"></p>
+                    <span class="loginTypeText">请选择快捷登录方式</span>
+                    <div class="otherLogin">
+                        <a href="javascript:;" class="otherBox">
+                            <img class="img1" src="/static/img/login/qq.png" alt="">
+                            <img class="img2" src="/static/img/login/qq1.png" alt="">
+                        </a>
+                        <a href="javascript:;" class="otherBox">
+                            <img class="img1" src="/static/img/login/weixin.png" alt="">
+                            <img class="img2" src="/static/img/login/weixin1.png" alt="">
+                        </a>
+                        <a href="javascript:;" class="otherBox">
+                            <img class="img1" src="/static/img/login/weibo.png" alt="">
+                            <img class="img2" src="/static/img/login/weibo1.png" alt="">
+                        </a>
+                    </div>
+                    <p class="text1">没有NOBOOK账号？<a class="text1_a goRegister" href="javascript:;">免费注册</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="/static/js/jquery-3.3.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // 过渡模块类
+        function tranitionFn() {
+            this.domData = {};
+        }
+        tranitionFn.prototype.init = function (domData) {
+            this.domData = domData;
+            $(this.domData.right).addClass('tranition3s');
+            $(this.domData.left).addClass('tranition3s');
+            return this;
+        };
+        tranitionFn.prototype.left = function () {
+            $(this.domData.right).removeClass('beforeTran');
+            $(this.domData.left).removeClass('beforeTran').addClass('afterTran');
+        };
+        tranitionFn.prototype.right = function () {
+            $(this.domData.left).removeClass('afterTran');
+            $(this.domData.right).removeClass('afterTran').addClass('beforeTran');
+        }
+        // 初始化需要过渡的模块
+        let loginType = new tranitionFn().init({
+            left: '.loginPassword',
+            right: '.loginPhone'
+        });
+        let loginModel = new tranitionFn().init({
+            left: '.signIn',
+            right: '.register'
+        });
+        // 登录方式 当前标签
+        let labelPageNum = 0;
+        let labelW = $('.labelPage p').width();
+        loginPageType();
+        $('.labelPage p').on('click', function () {
+            $('.labelPage p').removeClass('active');
+            $(this).addClass('active');
+            labelPageNum = $(this).index();
+            lableBtoBor(labelPageNum);
+            loginPageType();
+        });
+        // 登录模块标签移入移除
+        $('.labelPage p').on('mouseover', function () {
+            lableBtoBor($(this).index());
+        });
+        $('.labelPage p').on('mouseout', function () {
+            lableBtoBor(labelPageNum);
+        });
+        // 切换登录方式
+        function loginPageType() {
+            if (labelPageNum == 0) {
+                loginType.right();
+            } else {
+                loginType.left();
+            }
+        }
+        // 登录模块切换标签选中
+        function lableBtoBor(index) {
+            $('.labelPage .botBor').css('transform', `translate(${index*labelW}px,0)`);
+        }
+        // 注册登录切换
+        $('.goRegister').on('click', function () {
+            loginModel.left();
+        });
+        $('.goLogin').on('click', function () {
+            loginModel.right();
+        });
+    });
+</script>
+
+</html>
