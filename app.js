@@ -29,5 +29,5 @@ app.use(controller());
 let error404 = require('./middleware/404');
 app.use(error404(__dirname+'/static/html/404/404.html'));
 // 在端口3000监听:
-app.listen(3001);
-console.log('app started at port 3001...');
+app.listen(3030);
+console.log('app started at port 3030...');

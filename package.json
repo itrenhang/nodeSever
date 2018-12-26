@@ -4,7 +4,10 @@
   "description": "",
   "main": "test.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "docker build -t nobook/nodeserver:v1.0.0 .",
+    "docker": "docker run -p 3030:3030 -v $(pwd)/controllers:/usr/nobook/server/controllers -v $(pwd)/static:/usr/nobook/server/static  -t nobook/nodeserver:v1.0.0"
   },
   "author": "",
   "license": "ISC",

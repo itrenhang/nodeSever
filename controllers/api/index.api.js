@@ -7,7 +7,6 @@ function generateId() {
 
 let banner = model.banner;
 let fn_test = async (ctx, next) => {
-    
     let bannerList = await banner.findAll();
     ctx.rest({
         status: 200,
@@ -15,6 +14,7 @@ let fn_test = async (ctx, next) => {
         data: bannerList
     });
 };
+
 
 module.exports = {
     'GET /api/bannerList':fn_test
